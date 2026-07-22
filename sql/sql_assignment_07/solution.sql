@@ -1,0 +1,1 @@
+INSERT INTO Books VALUES(DEFAULT, 'Burmese Days', (SELECT author_id from Author WHERE author_name = 'George Orwell'), 1934, 288);

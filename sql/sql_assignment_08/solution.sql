@@ -1,0 +1,1 @@
+DELETE FROM Books WHERE author = (select author_id from Author WHERE author_name = 'Mark Twain');
