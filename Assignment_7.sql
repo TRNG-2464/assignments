@@ -1,0 +1,1 @@
+INSERT INTO BOOKS(isbn_13,title,author) VALUES(3063,'The book name',1002);
