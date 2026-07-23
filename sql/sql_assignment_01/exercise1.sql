@@ -6,7 +6,7 @@ CREATE TABLE Writer (
 CREATE TABLE Books (
 	book_id INT PRIMARY KEY,
 	title VARCHAR(100),
-	author VARCHAR(100),
+	author INT,
 	publication INT,
 	page_count INT
 );
