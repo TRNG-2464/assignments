@@ -32,4 +32,4 @@ rename table Writer to Author;
 
 alter table Author rename COLUMN writer_id to author_id;
 
-alter table Author rename column writer_name to author_maame;
+alter table Author rename column writer_name to author_name;

@@ -66,3 +66,5 @@ Sport
 |-|-|
 |40001|Foot Ball|
 |40002|Basket Ball|
+
+SELECT player_name FROM Player WHERE player_salary > 200000;

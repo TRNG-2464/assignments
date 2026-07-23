@@ -27,3 +27,7 @@ Books
 |3060|The Shining|1005|1977|447|
 |3061|Salem's Lot|1005|1975|439|
 |3062|Cat's Cradle|1003|1963|304|
+
+
+
+SELECT * FROM Books WHERE publication >= 1900 AND publication <= 1950;

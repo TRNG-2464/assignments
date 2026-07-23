@@ -66,3 +66,5 @@ Sport
 |-|-|
 |40001|Foot Ball|
 |40002|Basket Ball|
+
+SELECT sport_name FROM Sport WHERE sport_id = (SELECT sport_id FROM Team WHERE team_id = (SELECT team_id FROM Player ORDER BY player_salary LIMIT 1));
