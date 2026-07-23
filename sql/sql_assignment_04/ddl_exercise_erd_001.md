@@ -73,3 +73,66 @@ Room
 | room_number | varchar |
 | room_type | varchar |
 | is_available | boolean |
+
+
+CREATE TABLE Department (
+    department_id   INT PRIMARY KEY,
+    department_name VARCHAR(100) NOT NULL,
+    location        VARCHAR(100)
+);
+
+CREATE TABLE Doctor (
+    doctor_id       INT PRIMARY KEY,
+    department_id   INT,
+    first_name      VARCHAR(50) NOT NULL,
+    last_name       VARCHAR(50) NOT NULL,
+    specialty       VARCHAR(100),
+    phone           VARCHAR(20),
+    CONSTRAINT fk_doctor_department
+        FOREIGN KEY (department_id) REFERENCES Department(department_id)
+);
+
+CREATE TABLE Patient (
+    patient_id      INT PRIMARY KEY,
+    first_name      VARCHAR(50) NOT NULL,
+    last_name       VARCHAR(50) NOT NULL,
+    date_of_birth   DATE,
+    phone           VARCHAR(20),
+    address         VARCHAR(200)
+);
+
+CREATE TABLE Appointment (
+    appointment_id    INT PRIMARY KEY,
+    patient_id        INT,
+    doctor_id         INT,
+    appointment_date  DATE,
+    appointment_time  TIME,
+    reason            VARCHAR(200),
+    status            VARCHAR(20),
+    CONSTRAINT fk_appointment_patient
+        FOREIGN KEY (patient_id) REFERENCES Patient(patient_id),
+    CONSTRAINT fk_appointment_doctor
+        FOREIGN KEY (doctor_id) REFERENCES Doctor(doctor_id)
+);
+
+CREATE TABLE Prescription (
+    prescription_id  INT PRIMARY KEY,
+    appointment_id   INT,
+    medication_name  VARCHAR(100) NOT NULL,
+    dosage           VARCHAR(50),
+    instructions     VARCHAR(200),
+    CONSTRAINT fk_prescription_appointment
+        FOREIGN KEY (appointment_id) REFERENCES Appointment(appointment_id)
+);
+
+CREATE TABLE Room (
+    room_id        INT PRIMARY KEY,
+    department_id  INT,
+    room_number    VARCHAR(10),
+    room_type      VARCHAR(50),
+    is_available   BOOLEAN,
+    CONSTRAINT fk_room_department
+        FOREIGN KEY (department_id) REFERENCES Department(department_id)
+);
+
+with the help of Datagrip
