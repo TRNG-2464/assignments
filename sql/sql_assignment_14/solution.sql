@@ -1,0 +1,1 @@
+SELECT Sport.sport_name FROM Player INNER JOIN Team ON Player.team_id = Team.team_id INNER JOIN Sport ON Team.sport_id = Sport.sport_id ORDER BY Player.salary DESC LIMIT 1;

@@ -1,0 +1,1 @@
+SELECT player_name FROM Player INNER JOIN Team ON Player.team_id = Team.team_id INNER JOIN Sport on Team.sport_id = Sport.sport_id WHERE Sport.sport_name = 'Foot Ball' AND Player.salary > 200000;

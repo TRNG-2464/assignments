@@ -1,0 +1,1 @@
+SELECT Author.author_name FROM Author INNER JOIN Books ON Author.author_id = Books.author GROUP BY Author.author_name ORDER BY AVG(Books.page_count) ASC LIMIT 1;
