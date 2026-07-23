@@ -1,0 +1,1 @@
+SELECT page_count FROM BOOKS WHERE author = 1005; 
