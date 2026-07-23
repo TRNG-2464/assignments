@@ -8,8 +8,7 @@ CREATE TABLE Writer (
 CREATE TABLE Books (
 	book_id INT PRIMARY KEY,
 	title VARCHAR(255),
-	author INT,
+	author INT REFRENCES Writer(writer_id),
 	publication INT,
 	page_count INT,
-	FOREIGN KEY (author) REFRENCES Writer(writer_id)
 );
