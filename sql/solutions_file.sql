@@ -1,6 +1,6 @@
 /* Solutions to the sql assignments */
 
-  /* Exercise One */
+  /* Assignment One */
 
 drop table if exists Writer, Books, Author;
 
@@ -18,11 +18,11 @@ create table Books (
 );
 
 
-  /* Exercise Two */
+  /* Assignment Two */
 
 alter table Books rename column book_id to isbn_13;
 
-  /* Exercise Three */
+  /* Assignment Three */
 
 alter table Writer rename to Author;
 
@@ -31,7 +31,7 @@ alter table Author rename column writer_id to author_id;
 alter table Author rename column writer_name to author_name;
 
 
-/* Exercise Four */
+/* Assignment Four */
 
 drop table if exists Department, Doctor, Patient, Room, Appointment, Prescription;
 
@@ -115,7 +115,7 @@ create table Prescription(
 
 
 
-/* Exercise Five */
+/* Assignment Five */
 
 drop table if exists Principals, Schools, Students;
 
@@ -149,10 +149,10 @@ create table Students (
 
 
 
-/* Exercise Six */
+/* Assignment Six */
 insert into author (author_id, author_name) values (1006,'Cormac McCarthy');
 
-/* Exercise Seven */
+/* Assignment Seven */
 
 insert into books (
 	title,
@@ -169,7 +169,19 @@ values 	(
 );
 
 
+/* Assignment Eight */
 
+delete from books where author = (select author_id from author where author_name = 'Mark Twain');
+
+
+/* Assignment Nine */
+
+update Books set page_count = 220 where title = 'Slaughterhouse-Five';
+
+/* Assignment Ten */
+
+select count(page_count) from books where author = (
+select author_id from author where author_name = 'Stephen King');
 
 
 
