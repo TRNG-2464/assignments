@@ -1,0 +1,55 @@
+-- 1. Department
+CREATE TABLE departments(
+	department_id INTEGER PRIMARY KEY,
+	department_name VARCHAR(255),
+	location VARCHAR(255)
+);
+
+-- 2. Doctor
+CREATE TABLE doctors(
+	doctor_id INTEGER PRIMARY KEY,
+	department_id INTEGER REFERENCES departments(department_id),
+	first_name VARCHAR(255),
+	last_name VARCHAR(255),
+	specialty VARCHAR(255),
+	phone VARCHAR(255)
+);
+
+-- 3. Patient
+CREATE TABLE patients(
+	patient_id INTEGER PRIMARY KEY,
+	first_name VARCHAR(255),
+	last_name VARCHAR(255),
+	date_of_birth DATE,
+	phone VARCHAR(255),
+	address VARCHAR(255)
+);
+
+-- 4. Appointment
+CREATE TABLE appointments(
+	appointment_id INTEGER PRIMARY KEY,
+	patient_id INTEGER REFERENCES patients(patient_id),
+	doctor_id INTEGER REFERENCES doctors(doctor_id),
+	appointment_date DATE,
+	appointment_time TIME,
+	reason VARCHAR(255),
+	status VARCHAR(255)
+);
+
+-- 5. Prescription
+CREATE TABLE prescriptions(
+	prescription_id INTEGER PRIMARY KEY,
+	appointment_id INTEGER REFERENCES appointments(appointment_id),
+	medication_name VARCHAR(255),
+	dosage VARCHAR(255),
+	instructions VARCHAR(255)
+);
+
+-- 6. Room
+CREATE TABLE rooms(
+	room_id INTEGER PRIMARY KEY,
+	department_id INTEGER REFERENCES departments(department_id),
+	room_number VARCHAR(255),
+	room_type VARCHAR(255),
+	is_available BOOL
+);
