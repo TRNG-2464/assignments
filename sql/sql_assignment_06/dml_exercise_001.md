@@ -27,3 +27,6 @@ Books
 |3060|The Shining|1005|1977|447|
 |3061|Salem's Lot|1005|1975|439|
 |3062|Cat's Cradle|1003|1963|304|
+
+If the author was Rick Riordan:
+insert into Author (author_name) values ('Rick Riordan');

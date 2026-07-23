@@ -27,3 +27,8 @@ Books
 |3060|The Shining|1005|1977|447|
 |3061|Salem's Lot|1005|1975|439|
 |3062|Cat's Cradle|1003|1963|304|
+
+Assuming the book is 1984:
+insert into Books (title, author, publication, page_count) values ('1984', 1002, 1949, 328)
+
+thanks to some google searches and Gemini for the 1984 data

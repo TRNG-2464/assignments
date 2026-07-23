@@ -27,3 +27,22 @@ Books
 |3060|The Shining|1005|1977|447|
 |3061|Salem's Lot|1005|1975|439|
 |3062|Cat's Cradle|1003|1963|304|
+
+create table writer
+(
+    writer_name varchar(64) null,
+    writer_id   int auto_increment
+        primary key
+);
+
+create table books
+(
+    book_id     int auto_increment
+        primary key,
+    author      int         null,
+    title       varchar(64) null,
+    publication int         null,
+    page_count  int         null,
+    constraint writer_of_book
+        foreign key (author) references writer (writer_id)
+);
