@@ -1,0 +1,1 @@
+DELETE FROM BOOKS WHERE author = 1004;
