@@ -33,4 +33,4 @@ Books
 |3062|Cat's Cradle|1003|1963|304|
 
 
-SELECT author FROM Books GROUP BY author ORDER BY AVG(page_count) LIMIT 1;
+SELECT author_name FROM Books INNER JOIN Author ON Books.author = Author.author_id GROUP BY author_name ORDER BY AVG(page_count) LIMIT 1;

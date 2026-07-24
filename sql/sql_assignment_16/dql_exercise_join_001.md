@@ -34,3 +34,6 @@ Appointment
 |104|4|5|2025-03-13|11:00|Knee injury|Scheduled|
 |105|5|2|2025-03-14|09:30|Annual check|Scheduled|
 |106|1|4|2025-03-15|13:00|Headaches|Scheduled|
+
+
+SELECT first_name, last_name FROM (SELECT COUNT(doctor_id) as num_appts, doctor_id FROM Appointment GROUP BY doctor_id) as a RIGHT OUTER JOIN Doctor ON a.doctor_id = Doctor.doctor_id WHERE num_appts IS NULL;
