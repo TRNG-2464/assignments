@@ -1,6 +1,7 @@
 /* Solutions to the sql assignments */
 
   /* Assignment One */
+drop view if exists min_average_author;
 
 drop table if exists Writer, Books, Author;
 
@@ -219,7 +220,172 @@ insert into Books (isbn_13, title, author, publication, page_count) values
 (3061, 'Salem''s Lot', 1005, 1975, 439),
 (3062, 'Cat''s Cradle', 1003, 1963, 304);
 
+-- View version
+
+create view min_average_author as 
+select 
+	avg(books.page_count) as avg_pg_count,
+	author.author_name
+from books 
+inner join author on books.author = author.author_id
+group by(author.author_name);
+
+select MIN(avg_pg_count) from min_average_author;
+
+-- Single statement
+
+select min(avg_pg_count) 
+from (
+	select 
+		avg(books.page_count) as avg_pg_count
+	from books 
+	inner join author on books.author = author.author_id
+	group by(author.author_name)
+	);
 
 
+/* Assignment Thirteen */
+
+-- Drop tables if they already exist 
+drop table if exists Player;
+drop table if exists Team;
+drop table if exists State;
+drop table if exists Sport;
+
+
+-- Create State table
+create table State (
+    state_id int primary key,
+    state_name varchar(50) not null
+);
+
+
+-- Create Sport table
+create table Sport (
+    sport_id int primary key,
+    sport_name varchar(50) not null
+);
+
+
+-- Create Team table
+create table Team (
+    team_id int primary key,
+    team_name varchar(100) not null,
+    state_id int not null,
+    sport_id int not null,
+
+    constraint team_fk_state
+        foreign key (state_id)
+        references State(state_id),
+
+    constraint team_fk_sport
+        foreign key (sport_id)
+        references Sport(sport_id)
+);
+
+
+-- Create Player table
+create table Player (
+    player_id int primary key,
+    team_id int not null,
+    player_name varchar(100) not null,
+    player_salary int not null,
+
+    constraint player_fk_team
+        foreign key (team_id)
+        references Team(team_id)
+);
+
+
+-- Insert State data
+insert into State values
+(10001, 'New York'),
+(10002, 'Texas'),
+(10003, 'Colorado'),
+(10004, 'Florida'),
+(10005, 'California');
+
+
+-- Insert Sport data
+insert into Sport values
+(40001, 'Foot Ball'),
+(40002, 'Basket Ball');
+
+
+-- Insert Team data
+insert into Team values
+(20001, 'Los Angeles Clippers', 10005, 40002),
+(20002, 'Denver Broncos', 10003, 40001),
+(20003, 'New York Knicks', 10001, 40002),
+(20004, 'Miami Dolphins', 10004, 40001),
+(20005, 'Denver Nuggets', 10003, 40002),
+(20006, 'Dallas Mavericks', 10002, 40002),
+(20007, 'Dallas Cowboys', 10002, 40001),
+(20008, 'San Francisco 49ers', 10005, 40001),
+(20009, 'Miami Heat', 10004, 40002),
+(20010, 'Buffalo Bills', 10001, 40001);
+
+
+-- Insert Player data
+insert into Player values
+(30001, 20006, 'Terry Lennie', 185000),
+(30002, 20002, 'Ellis Sidney', 101000),
+(30003, 20001, 'Alex Meredith', 236000),
+(30004, 20003, 'Parker Lindsay', 240000),
+(30005, 20008, 'Lindsey Darian', 241000),
+(30006, 20007, 'Kit Stacy', 220000),
+(30007, 20003, 'Sammie Hadley', 112000),
+(30008, 20005, 'Tracey Bailey', 128000),
+(30009, 20002, 'Addison Garnet', 105000),
+(30010, 20005, 'Esme Stace', 146000),
+(30011, 20009, 'Kennedy Meredith', 236000),
+(30012, 20004, 'Cortney Harper', 168000),
+(30013, 20002, 'Loren Addison', 189000),
+(30014, 20009, 'Jojo Noel', 233000),
+(30015, 20010, 'Syd Hilary', 132000),
+(30016, 20006, 'Jools Francis', 204000),
+(30017, 20001, 'Beverly Terry', 210000),
+(30018, 20007, 'Sidney Raven', 157000),
+(30019, 20006, 'Page Ricki', 247000),
+(30020, 20003, 'Palmer Beau', 104000),
+(30021, 20008, 'Hadley Lindsey', 133000),
+(30022, 20008, 'Yancy Cameron', 220000),
+(30023, 20010, 'Jo Jools', 140000),
+(30024, 20001, 'Raleigh Ricki', 170000),
+(30025, 20004, 'Tibby Ronnie', 138000),
+(30026, 20009, 'Jules Evelyn', 175000),
+(30027, 20007, 'Lesley Izzy', 179000),
+(30028, 20005, 'Eddie Peyton', 129000),
+(30029, 20010, 'Alpha Jocelyn', 215000),
+(30030, 20004, 'Parker Emery', 202000);
+
+
+
+select * from Player where player_salary > 200000;
+
+
+/* Assignment 14 */
+
+select sport_name
+from sport
+where 
+	sport_id = (
+		
+		select team.sport_id
+		from player
+		inner join team on player.team_id = team.team_id
+		order by player_salary desc 
+		limit 1
+		
+	);
+
+/* Assignment 15 */
+	
+	
+select player_name from player where lower(player_name) like 'jo%';
+
+select player_name from player where lower(player_name) like '%a%e%';
+
+	
 
 
