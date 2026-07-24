@@ -1,0 +1,1 @@
+SELECT p.player_name FROM PLAYER p JOIN TEAM t ON p.team_id = t.team_id WHERE p.player_salary>200000 AND t.sport_id =40001;
