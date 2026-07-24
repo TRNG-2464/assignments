@@ -1,0 +1,1 @@
+SELECT author_name FROM author WHERE author_id = (SELECT author FROM books GROUP BY author ORDER BY AVG(page_count) ASC LIMIT 1);
