@@ -1,0 +1,1 @@
+ALTER TABLE exercise.Books RENAME COLUMN book_id TO isbn_13;

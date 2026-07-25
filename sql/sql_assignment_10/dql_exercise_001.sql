@@ -1,0 +1,1 @@
+SELECT SUM(page_count) FROM exercise.Books WHERE author = (SELECT author_id FROM exercise.Author WHERE author_name = 'Stephen King');
