@@ -73,3 +73,67 @@ Room
 | room_number | varchar |
 | room_type | varchar |
 | is_available | boolean |
+
+
+================== Soluation4 ===============
+
+CREATE TABLE Department (
+department_id  INT  PRIMARY KEY,
+department_name varchar(100) NOT NULL,
+location varchar (100)
+);
+
+CREATE TABLE Doctor (
+doctor_id INT PRIMARY KEY,
+department_id  INT NOT NULL,
+
+first_name varchar(50),
+last_name varchar(50) NOT NULL,
+specialty varchar(100) NOT NULL,
+phone varchar(10),
+FOREIGN KEY (department_id)
+ REFERENCES Department(department_id)
+ 
+);
+
+CREATE TABLE Patient ( 
+patient_id INT PRIMARY KEY,
+first_name varchar(50) NOT NULL,
+last_name varchar(50) NOT NULL,
+date_of_birth date NOT NULL,
+phone varchar(20),
+address varchar(200)
+);
+CREATE TABLE Appointment (
+appointment_id INT PRIMARY KEY,
+patient_id  INT NOT NULL,
+doctor_id INT NOT NULL,
+appointment_date date NOT NULL,
+appointment_time time NOT NULL,
+reason varchar(200),
+status varchar(50),
+FOREIGN KEY(patient_id)
+ REFERENCES Patient(patient_id),
+ 
+FOREIGN KEY (doctor_id) 
+REFERENCES  Doctor(doctor_id)
+
+);
+CREATE TABLE ROOM (
+room_id INT PRIMARY KEY,
+department_id INT,
+room_number varchar(50),
+room_type varchar(50),
+is_available boolean ,
+FOREIGN KEY (department_id) 
+REFERENCES Department(department_id)
+);
+CREATE TABLE  Prescription(
+ prescription_id INT PRIMARY KEY,
+ appointment_id INT NOT NULL,
+ medication_name varchar(50),
+ dosage          varchar(50),
+ instructions    varchar(100),
+ FOREIGN KEY (appointment_id) 
+ REFERENCES Appointment(appointment_id)
+);
