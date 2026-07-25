@@ -27,3 +27,19 @@ Books
 |3060|The Shining|1005|1977|447|
 |3061|Salem's Lot|1005|1975|439|
 |3062|Cat's Cradle|1003|1963|304|
+
+====================== Solution1==================
+
+CREATE TABLE Writer (
+    writer_id INT primary key,
+    writer_name varchar(100)
+);
+
+CREATE TABLE Books (
+    book_id INT primary key,
+    title varchar(200),
+    author INT,
+    publication INT,
+    page_count INT,
+    FOREIGN KEY (author) REFERENCES Writer(writer_id)
+);
