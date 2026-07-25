@@ -27,3 +27,17 @@ Books
 |3060|The Shining|1005|1977|447|
 |3061|Salem's Lot|1005|1975|439|
 |3062|Cat's Cradle|1003|1963|304|
+
+
+
+====================== Solution3 ==================
+
+RENAME TABLE Writer TO Author ;
+
+
+ALTER TABLE Author
+RENAME column TO author_id,
+RENAME column writer_name TO author_name ;
+
+
+
