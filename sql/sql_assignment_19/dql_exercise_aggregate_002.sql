@@ -20,39 +20,39 @@
 SELECT product_name, unit_cost, unit_price, unit_price - unit_cost AS per_unit_profit_margin FROM Product;
 
 -- 2 
-SELECT c.category_name, SUM(p.stock_quantity * unit cost) AS total_inventory_value
+SELECT c.category_name, SUM(p.stock_quantity * p.unit_cost) AS total_inventory_value
 FROM Category c
 INNER JOIN Product p on c.category_id = p.category_id
 GROUP BY c.category_name;
 
 --3
-SELECT c.category_name, SUM(p.stock_quantity * unit price) AS gross_revenue_potential
-FROM Category c
-INNER JOIN Product p on c.category_id = p.category_id
-GROUP BY c.category_name;
+SELECT p.product_name, stock_quantity * unit_price AS gross_revenue_potential
+FROM Product;
 
 -- 4 
-SELECT product_name, AVG(unit_price - unit_cost) AS overall_average_profit_margin FROM Product;
+SELECT AVG(unit_price - unit_cost) AS overall_average_profit_margin FROM Product;
 
 -- 5
 SELECT product_name FROM Product
-WHERE unit_price - unit_cost > (AVG(unit_price-unit_cost));
+WHERE unit_price - unit_cost > (SELECT AVG(unit_price-unit_cost) from Product);
 
 -- 6 
-SELECT SUM(s.quantity_sold) AS total_units_sold, 
+SELECT p.product_name,
+SUM(s.quantity_sold) AS total_units_sold, 
 SUM(s.quantity_sold * p.unit_price) AS total_revenue,
 SUM(s.quantity_sold * p.unit_cost) AS total_cost,
-total_revenue - total_cost AS total_profit,
+SUM(s.quantity_sold *(p.unit_price - p.unit_cost)) AS total_profit
 FROM Product p
 INNER JOIN Sale s on p.product_id = s.product_id
-GROUP BY product_id;
+GROUP BY p.product_id;
 
 -- 7
-SELECT SUM(s.quantity_sold) AS total_units_sold,
-SUM(s.quantity_sold * p.unit_price) - SUM(s.quantity_sold * p.unit_cost) AS total_profit,
+SELECT p.product_name,
+SUM(s.quantity_sold) AS total_units_sold,
+SUM(s.quantity_sold * p.unit_price) - SUM(s.quantity_sold * p.unit_cost) AS total_profit
 FROM Product p
 INNER JOIN Sale s on p.product_id = s.product_id
-GROUP BY product_id
+GROUP BY p.product_id
 ORDER BY total_profit DESC LIMIT 3;
 
 /*
@@ -82,12 +82,12 @@ ORDER BY LENGTH(product_name)
 LIMIT 1;
 
 -- 10
-SELECT * FROM Product WHERE Like '% %';
+SELECT * FROM Product WHERE product_name Like '% %';
 
 --11
-SELECT * FROM Category WHERE Like 'E%';
+SELECT * FROM Category WHERE category_name Like 'E%';
 
 --12
-SELECT LOWER(p.product_name), UPPER(c.category_name)
+SELECT UPPER(p.product_name), LOWER(c.category_name)
 FROM Product p
 INNER JOIN Category c ON p.category_id = c.category_id;

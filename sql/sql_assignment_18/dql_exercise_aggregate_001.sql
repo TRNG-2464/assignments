@@ -4,16 +4,16 @@ SELECT sp.salesperson_name, SUM(p.unit_price * s.quantity) AS total_revenue
 FROM Salesperson sp
 INNER JOIN Sale s ON sp.salesperson_id = s.salesperson_id
 INNER JOIN Product p ON s.product_id  = p.product_id
-GROUP BY s.salesperson_id
+GROUP BY sp.salesperson_id
 ORDER BY total_revenue DESC;
 
 
 -- 2. Return the top selling product overall by total units sold.
-SELECT p.product_name, SUM(s.quantity) as top_sales
+SELECT p.product_name, SUM(s.quantity) as units_sold
 FROM Sale s
 INNER JOIN Product p ON s.product_id = p.product_id
 GROUP BY p.product_id
-ORDER BY p.product_name DESC
+ORDER BY units_sold DESC
 LIMIT 1;
 
 -- 3. For each product, return its name alongside its total revenue, total cost, and total profit. *(Hint: profit = revenue - cost)*
@@ -33,11 +33,11 @@ WHERE unit_price - unit_cost = (SELECT MAX(unit_price - unit_cost) FROM Product)
 SELECT region_name, salesperson_name, total_revenue
 FROM
 (SELECT r.region_name,
- s.salesperson_name,
+ sp.salesperson_name,
  SUM(p.unit_price * s.quantity) AS total_revenue,
  RANK() OVER(
     PARTITION BY r.region_id
-    ORDER BY SUM(p*.unit_price * s.quantity) DESC
+    ORDER BY SUM(p.unit_price * s.quantity) DESC
  ) AS ranking
 FROM Region r
 INNER JOIN Salesperson sp ON r.region_id = sp.region_id
@@ -53,10 +53,10 @@ FROM
 RANK() OVER(
     PARTITION BY r.region_id
     ORDER BY SUM(s.quantity) DESC
-) as ranking
+) AS ranking
 FROM Region r
 INNER JOIN Salesperson sp ON r.region_id = sp.region_id 
 INNER JOIN Sale s ON sp.salesperson_id = s.salesperson_id
 INNER JOIN Product p ON s.product_id = p.product_id
-GROUP BY r.region_id, s.product_id)
+GROUP BY r.region_id, p.product_id) AS ranked_products
 WHERE ranking = 1;
