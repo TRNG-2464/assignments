@@ -32,4 +32,4 @@ Books
 ====================== Solution2 ==================
 
 ALTER TABLE Books
-RENAME COLUMN book_id TO isbn_13 ;
+RENAME column book_id TO isbn_13 ;
