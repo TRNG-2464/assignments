@@ -31,3 +31,34 @@ Books
 |3060|The Shining|1005|1977|447|
 |3061|Salem's Lot|1005|1975|439|
 |3062|Cat's Cradle|1003|1963|304|
+
+
+<!-- 
+
+================Sol 12========================
+//  THIS RETURN ONLY THE MIN AVG 
+SELECT MIN(AVG_p) 
+FROM(
+SELECT avg(page_count) as AVG_p
+from Books 
+group by author 
+) 
+ AS AVG_Table; -->
+
+// SO WE WANT THE AUTHE GROUPED BY THAT MIN 
+
+SELECT author ,Avg(page_count) AS avg_pgs
+from Books 
+GROUP BY author 
+HAVING AVG(page_count) = (
+    SELECT MIN(avg_pgs) 
+    FROM (
+        SELECT AVG(page_count) AS avg_pgs
+        FROM Books 
+        GROUP BY author
+    ) As Min_Pages_Author
+);
+
+
+
+
