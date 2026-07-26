@@ -27,3 +27,22 @@ Books
 |3060|The Shining|1005|1977|447|
 |3061|Salem's Lot|1005|1975|439|
 |3062|Cat's Cradle|1003|1963|304|
+
+
+
+============= Soluation 11===========
+// all Record and with cols identfication  1- I THis is the Correct Soluation because Select all books no sepcific attribute ...
+ 
+ select * from books
+where publication between 1900 and 1950;
+
+
+// all Record and with book-id and Title   // no optimal 
+
+select book_id,title from books
+where publication between 1900 and 1950;
+
+// only book id      // not optimal
+
+select book_id from books
+where publication between 1900 and 1950;
