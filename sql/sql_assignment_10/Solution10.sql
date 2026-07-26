@@ -1,0 +1,3 @@
+-- Anmoldeep Solution 10
+
+SELECT SUM(page_count) AS total_page_count FROM Books WHERE author=1005;
