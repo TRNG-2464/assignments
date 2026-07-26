@@ -1,9 +1,9 @@
-CREATE TABLE writers (
+CREATE TABLE Writer (
 	writer_id SERIAL PRIMARY KEY,
 	writer_name VARCHAR(255)
 );
 
-CREATE TABLE books (
+CREATE TABLE Books (
 	book_id SERIAL PRIMARY KEY,
 	title VARCHAR(255),
 	author INTEGER REFERENCES writers(writer_id),

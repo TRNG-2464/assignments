@@ -1,2 +1,7 @@
--- 1. Rename table "writer" -> "author"
-ALTER TABLE writers RENAME TO authors;
+ALTER TABLE Writer RENAME TO Author;
+
+ALTER TABLE Author
+RENAME COLUMN writer_id TO author_id;
+
+ALTER TABLE Author
+RENAME COLUMN writer_name TO author_name;

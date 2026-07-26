@@ -1,12 +1,12 @@
 -- 1. Department
-CREATE TABLE departments(
+CREATE TABLE Department(
 	department_id INTEGER PRIMARY KEY,
 	department_name VARCHAR(255),
 	location VARCHAR(255)
 );
 
 -- 2. Doctor
-CREATE TABLE doctors(
+CREATE TABLE Doctor(
 	doctor_id INTEGER PRIMARY KEY,
 	department_id INTEGER REFERENCES departments(department_id),
 	first_name VARCHAR(255),
@@ -16,7 +16,7 @@ CREATE TABLE doctors(
 );
 
 -- 3. Patient
-CREATE TABLE patients(
+CREATE TABLE Patient(
 	patient_id INTEGER PRIMARY KEY,
 	first_name VARCHAR(255),
 	last_name VARCHAR(255),
@@ -26,7 +26,7 @@ CREATE TABLE patients(
 );
 
 -- 4. Appointment
-CREATE TABLE appointments(
+CREATE TABLE Appointment(
 	appointment_id INTEGER PRIMARY KEY,
 	patient_id INTEGER REFERENCES patients(patient_id),
 	doctor_id INTEGER REFERENCES doctors(doctor_id),
@@ -37,7 +37,7 @@ CREATE TABLE appointments(
 );
 
 -- 5. Prescription
-CREATE TABLE prescriptions(
+CREATE TABLE Prescription(
 	prescription_id INTEGER PRIMARY KEY,
 	appointment_id INTEGER REFERENCES appointments(appointment_id),
 	medication_name VARCHAR(255),
@@ -46,7 +46,7 @@ CREATE TABLE prescriptions(
 );
 
 -- 6. Room
-CREATE TABLE rooms(
+CREATE TABLE Room(
 	room_id INTEGER PRIMARY KEY,
 	department_id INTEGER REFERENCES departments(department_id),
 	room_number VARCHAR(255),
