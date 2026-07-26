@@ -27,3 +27,11 @@ Books
 |3060|The Shining|1005|1977|447|
 |3061|Salem's Lot|1005|1975|439|
 |3062|Cat's Cradle|1003|1963|304|
+
+
+=========Soluation 7=============
+
+/* serial genrate here* no bookID */ 
+
+INSERT INTO Books(title,author,publication,page_count) 
+values('Burmese Days',1002, 1934,377);
