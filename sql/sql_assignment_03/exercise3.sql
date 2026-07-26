@@ -1,0 +1,2 @@
+ALTER TABLE Writer
+RENAME TO Author;
