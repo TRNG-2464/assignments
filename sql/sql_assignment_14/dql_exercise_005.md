@@ -66,3 +66,16 @@ Sport
 |-|-|
 |40001|Foot Ball|
 |40002|Basket Ball|
+
+
+===========Soluation 14 ==============
+
+
+SELECT s.sport_name,
+       MAX(p.player_salary) AS Heihest_Sal
+FROM Player p
+JOIN Team t
+ON p.team_id = t.team_id
+JOIN Sport s
+ON t.sport_id = s.sport_id
+GROUP BY s.sport_name;
