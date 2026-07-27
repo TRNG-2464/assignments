@@ -55,3 +55,48 @@ Using the schema above, write an SQL query for each of the following:
 **Stretch Goal 1:** Return the salesperson who generated the most revenue within each region. Your result should show the region name, the salesperson's name, and their total revenue for that region.
 
 **Stretch Goal 2 *(Advanced)*:** Return the top selling product in each region by total units sold. *Note: this is significantly more challenging than the questions above and may require a subquery or window function.*
+
+
+
+========= SOLUATION=====
+// 1
+SELECT sp.salesperson_name,
+       SUM(s.quantity * p.unit_price) AS total_reV
+FROM Salesperson sp
+JOIN Sale s
+ON sp.salesperson_id = s.salesperson_id
+JOIN Product p
+ON s.product_id = p.product_id
+GROUP BY sp.salesperson_name
+ORDER BY total_reV DESC;
+
+// 2
+SELECT p.product_name,
+       SUM(s.quantity) AS total_unit
+FROM Product p
+JOIN Sale s
+ON p.product_id = s.product_id
+GROUP BY p.product_name
+ORDER BY total_unit DESC
+LIMIT 1;
+
+// 3 SELECT 
+    p.product_name,
+    SUM(s.quantity * p.unit_price) AS total_revenue,
+    SUM(s.quantity * p.unit_cost) AS total_cost,
+    SUM(s.quantity * p.unit_price) - SUM(s.quantity * p.unit_cost) AS total_profit
+FROM Product p
+JOIN Sale s
+ON p.product_id = s.product_id
+GROUP BY p.product_name;
+
+// 4 
+
+SELECT 
+    product_name,
+    unit_price - unit_cost AS margin
+FROM Product
+WHERE unit_price - unit_cost = (
+    SELECT MAX(unit_price - unit_cost)
+    FROM Product
+);
