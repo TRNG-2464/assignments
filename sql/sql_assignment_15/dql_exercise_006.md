@@ -68,3 +68,18 @@ Sport
 |-|-|
 |40001|Foot Ball|
 |40002|Basket Ball|
+
+
+
+========SOLUATION 15======
+// 1
+
+SELECT * 
+FROM Player
+WHERE player_name LIKE 'JO%';
+
+// 2
+
+SELECT * 
+FROM Player
+WHERE player_name LIKE '%a%e%';
