@@ -66,3 +66,56 @@ Sport
 |-|-|
 |40001|Foot Ball|
 |40002|Basket Ball|
+
+====== Soluation 13====== 
+
+<!-- // 1- one hard solution to read  sub
+
+ -->
+ SELECT player_name,player_Salary
+ FROM Player
+ where 
+ player_Salary >200000
+ AND 
+ team_id IN (
+    SELECT team_id
+    FROM Team
+    WHERE sport_id = (
+            
+            SELECT sport_id
+            FROM Sport
+          WHERE sport_name ='Foot Ball'
+
+        )
+  );
+ 
+
+
+ <!-- by Join is better and clear -->
+
+Select Player.Player_id,
+Player.player_name,
+Player.player Salary,
+Sport.sport_name
+from Player 
+join Team
+on Player.team_id = Team.team_id
+join Sport
+on Sport.sport_id =Team.sport_id
+where Sport.sport_name = 'Foot Ball' 
+And
+Player.player_Salary > 200000;
+
+<!-- with Alias  -->
+Select p.Player_id,
+       p.player_name,
+       p.player Salary,
+       s.sport_name
+from Player p
+join Team t
+on p.team_id = t.team_id
+join Sport s
+on t.sport_id =s.sport_id
+where s.sport_name = 'Foot Ball' 
+And
+p.player_Salary > 200000;
