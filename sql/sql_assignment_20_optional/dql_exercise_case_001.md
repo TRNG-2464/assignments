@@ -18,7 +18,7 @@ Student
 | 1007 | George Tam |
 | 1008 | Hannah Cruz |
 | 1009 | Ivan Petrov |
-| 1010 | Julia Marsh |
+| 1010 | Julia Marsh | 
 
 TestConfig
 | test_id | test_name | pass_mark |
@@ -66,3 +66,25 @@ TestEvent
 **Stretch Goal:** Provide a second query that returns a report for **all tests and all attempts** — not just Introductory SQL. Each row should include the student's ID, name, the test name, and their score. A student's name should be masked with `NULL` if their score falls below the `pass_mark` for that specific test.
 
 *Note: your `CASE` condition will need to compare against a column value from a joined table rather than a hardcoded literal. The result set should contain one row per student per test (30 rows total), ordered by test name then score descending.*
+SELECT
+
+
+
+========= Soluation==========
+
+<!-- student pass/ not -->
+
+SELECT  S.student_id,
+  CASE 
+  WHEN TE.test_score >=TC.pass_mark THEN S.student_name
+  ELSE NULL
+  END
+  AS Student_Name,
+  TE.test_score
+FROM  Student S
+JOIN TestEvent TE
+ON S.student_id = TE.student_id
+JOIN TestConfig TC
+ON TE.test_id =TC.test_id
+WHERE TC.test_name ='Introductory SQL'
+ORDER BY TE.test_score DESC;
