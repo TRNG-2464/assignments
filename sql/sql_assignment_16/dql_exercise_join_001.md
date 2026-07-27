@@ -34,3 +34,26 @@ Appointment
 |104|4|5|2025-03-13|11:00|Knee injury|Scheduled|
 |105|5|2|2025-03-14|09:30|Annual check|Scheduled|
 |106|1|4|2025-03-15|13:00|Headaches|Scheduled|
+
+
+====SOLUATION ======
+
+// 1 
+SELECT 
+D.first_name,
+D.last_name
+FROM Doctor D
+LEFT JOIN Appointment A
+ON  D.doctor_id = A.doctor_id
+WHERE A.appointment_id IS NULL ;
+
+// 2
+
+SELECT 
+D.first_name,
+D.last_name
+FROM Doctor D
+LEFT JOIN Appointment A
+ON  D.doctor_id = A.doctor_id
+AND A.status = 'Scheduled'
+WHERE A.appointment_id IS NULL ;
