@@ -1,3 +1,4 @@
+
 /* Assignment Four */
 
 drop table if exists Department, Doctor, Patient, Room, Appointment, Prescription;
@@ -79,3 +80,5 @@ create table Prescription(
 		foreign key (appointment_id)
 		references Appointment(appointment_id)
 );
+
+

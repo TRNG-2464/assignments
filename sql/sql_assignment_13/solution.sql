@@ -1,3 +1,4 @@
+
 /* Assignment Thirteen */
 
 -- Drop tables if they already exist
@@ -116,3 +117,4 @@ insert into Player values
 
 
 select * from Player where player_salary > 200000;
+

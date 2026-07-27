@@ -1,3 +1,4 @@
+
 /* Assignment Five */
 
 drop table if exists Principals, Schools, Students;
@@ -29,3 +30,5 @@ create table Students (
 		foreign key(school)
 		references Schools(name)
 );
+
+

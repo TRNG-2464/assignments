@@ -1,4 +1,5 @@
-/* Assignment One */
+
+  /* Assignment One */
 drop view if exists min_average_author;
 
 drop table if exists Writer, Books, Author;
@@ -15,3 +16,4 @@ create table Books (
   publication int,
   page_count int
 );
+

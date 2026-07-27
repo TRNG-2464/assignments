@@ -1,3 +1,4 @@
+
 /* Assignment Seven */
 
 insert into books (
@@ -13,3 +14,4 @@ values 	(
 	1949,
 	325
 );
+

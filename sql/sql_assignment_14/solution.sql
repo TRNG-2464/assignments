@@ -1,3 +1,4 @@
+
 /* Assignment 14 */
 
 select sport_name
@@ -11,4 +12,5 @@ where
 		order by player_salary desc
 		limit 1
 
-	);
+		);
+
