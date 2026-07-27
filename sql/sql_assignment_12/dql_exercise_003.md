@@ -44,6 +44,7 @@ from Books
 group by author 
 ) 
  AS AVG_Table; -->
+//
 
 // SO WE WANT THE AUTHE GROUPED BY THAT MIN 
 
