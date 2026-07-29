@@ -10,7 +10,7 @@ CREATE TABLE Principle(
 CREATE TABLE School(
 	school_id SERIAL PRIMARY KEY,
 	name VARCHAR(255),
-	principle_id INTEGER REFERENCES principles(principle_id)
+	principle_id INTEGER REFERENCES Principle(principle_id)
 );
 
 -- 3. Student
@@ -20,5 +20,5 @@ CREATE TABLE Student(
 	grade_level VARCHAR(255),	-- could be integer
 	home_address VARCHAR(255),
 	emergency_contact_phone_number VARCHAR(255),
-	school_id INTEGER REFERENCES schools(school_id)
+	school_id INTEGER REFERENCES School(school_id)
 );

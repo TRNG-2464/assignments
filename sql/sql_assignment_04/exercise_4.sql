@@ -8,7 +8,7 @@ CREATE TABLE Department(
 -- 2. Doctor
 CREATE TABLE Doctor(
 	doctor_id INTEGER PRIMARY KEY,
-	department_id INTEGER REFERENCES departments(department_id),
+	department_id INTEGER REFERENCES Department(department_id),
 	first_name VARCHAR(255),
 	last_name VARCHAR(255),
 	specialty VARCHAR(255),
@@ -28,8 +28,8 @@ CREATE TABLE Patient(
 -- 4. Appointment
 CREATE TABLE Appointment(
 	appointment_id INTEGER PRIMARY KEY,
-	patient_id INTEGER REFERENCES patients(patient_id),
-	doctor_id INTEGER REFERENCES doctors(doctor_id),
+	patient_id INTEGER REFERENCES Patient(patient_id),
+	doctor_id INTEGER REFERENCES Doctor(doctor_id),
 	appointment_date DATE,
 	appointment_time TIME,
 	reason VARCHAR(255),
@@ -39,7 +39,7 @@ CREATE TABLE Appointment(
 -- 5. Prescription
 CREATE TABLE Prescription(
 	prescription_id INTEGER PRIMARY KEY,
-	appointment_id INTEGER REFERENCES appointments(appointment_id),
+	appointment_id INTEGER REFERENCES Appointment(appointment_id),
 	medication_name VARCHAR(255),
 	dosage VARCHAR(255),
 	instructions VARCHAR(255)
@@ -48,7 +48,7 @@ CREATE TABLE Prescription(
 -- 6. Room
 CREATE TABLE Room(
 	room_id INTEGER PRIMARY KEY,
-	department_id INTEGER REFERENCES departments(department_id),
+	department_id INTEGER REFERENCES Department(department_id),
 	room_number VARCHAR(255),
 	room_type VARCHAR(255),
 	is_available BOOL
