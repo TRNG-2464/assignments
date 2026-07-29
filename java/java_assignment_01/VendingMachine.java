@@ -31,7 +31,21 @@ public class VendingMachine {
             totalCost += costs[i];
         }
 
-        return insertMoney(totalCost, amount);
+        if (totalCost < 0) {
+            return "Item price cannot be negative";
+        }
+
+        if (amount < 0) {
+            return "Amount inserted cannot be negative";
+        }
+
+        if (amount < totalCost) {
+            double remaining = totalCost - amount;
+            return String.format("Insufficient funds. Please insert $%.2f more.", remaining);
+        }
+
+        double change = amount - totalCost;
+        return String.format("Purchase successful. Change due: $%.2f", change);
     }
 
     public String getChange(double amount) {
