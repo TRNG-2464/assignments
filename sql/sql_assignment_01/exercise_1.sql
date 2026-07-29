@@ -6,7 +6,7 @@ CREATE TABLE Writer (
 CREATE TABLE Books (
 	book_id SERIAL PRIMARY KEY,
 	title VARCHAR(255),
-	author INTEGER REFERENCES writers(writer_id),
+	author INTEGER REFERENCES Writer(writer_id),
 	publication integer,
 	page_count integer
 )
