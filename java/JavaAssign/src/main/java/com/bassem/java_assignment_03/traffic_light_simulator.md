@@ -1,4 +1,3 @@
-# Traffic Light Simulator
 
 ## Objective
 
@@ -9,7 +8,8 @@ Practice using `switch` statements to represent state transitions, modulo arithm
 - Write a method that accepts two parameters: a starting light color (as a `String`) and a number of "ticks" (time steps) that pass.
 - The light cycles in a fixed order: **Green → Yellow → Red → Green → ...**, advancing one step in the cycle per tick.
 - Your method should determine and report what color the light will be after the given number of ticks have passed.
-- A tick count of `0` should leave the light unchanged.
+- A tick count of `0` should leave the light unc# Traffic Light Simulator
+  hanged.
 - A tick count greater than the length of a single cycle (3) should still work correctly. Starting with a loop that advances one tick at a time is a reasonable first approach, but consider whether modulo arithmetic could get you to the answer more directly, without looping through every tick.
 - If the starting color provided is not one of "Green", "Yellow", or "Red", your method should return a clear message indicating the input was not recognized, rather than attempting to calculate a result.
 - If the tick count provided is negative, your method should return a clear error message string rather than attempting to calculate a result.
