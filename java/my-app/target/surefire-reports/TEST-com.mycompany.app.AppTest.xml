@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-26-openjdk/lib"/>
-    <property name="sun.java.command" value="/home/user1/Desktop/RevatureTraining/class_repo/assignments/java/my-app/target/surefire/surefirebooter-20260728235930048_3.jar /home/user1/Desktop/RevatureTraining/class_repo/assignments/java/my-app/target/surefire 2026-07-28T23-59-30_008-jvmRun1 surefire-20260728235930048_1tmp surefire_0-20260728235930048_2tmp"/>
+    <property name="sun.java.command" value="/home/user1/Desktop/RevatureTraining/class_repo/assignments/java/my-app/target/surefire/surefirebooter-20260801010902437_3.jar /home/user1/Desktop/RevatureTraining/class_repo/assignments/java/my-app/target/surefire 2026-08-01T01-09-02_397-jvmRun1 surefire-20260801010902437_1tmp surefire_0-20260801010902437_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/user1/Desktop/RevatureTraining/class_repo/assignments/java/my-app/target/test-classes:/home/user1/Desktop/RevatureTraining/class_repo/assignments/java/my-app/target/classes:/home/user1/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar:/home/user1/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/user1/.m2/repository/org/junit/platform/junit-platform-commons/1.11.0/junit-platform-commons-1.11.0.jar:/home/user1/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/user1/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.0/junit-jupiter-params-5.11.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -27,13 +27,13 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/home/user1/Desktop/RevatureTraining/class_repo/assignments/java/my-app/target/surefire/surefirebooter-20260728235930048_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/user1/Desktop/RevatureTraining/class_repo/assignments/java/my-app/target/surefire/surefirebooter-20260801010902437_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="26.0.2"/>
     <property name="user.name" value="user1"/>
     <property name="stdout.encoding" value="UTF-8"/>
     <property name="path.separator" value=":"/>
-    <property name="os.version" value="7.1.4-arch1-1"/>
+    <property name="os.version" value="7.1.5-arch1-2"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
@@ -54,5 +54,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="70.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="com.mycompany.app.AppTest" time="0.011"/>
+  <testcase name="shouldAnswerWithTrue" classname="com.mycompany.app.AppTest" time="0.01"/>
 </testsuite>

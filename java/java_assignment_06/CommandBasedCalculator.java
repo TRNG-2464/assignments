@@ -1,10 +1,9 @@
-package com.mycompany.app;
 
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class App {
+public class CommandBasedCalculator {
 
     public static void main(String[] args) {
         Scanner std_in = new Scanner(System.in);
@@ -28,21 +27,21 @@ public class App {
                     switch (command) {
                         case "reset":
                             total = 0;
-                            System.out.println("Running total has been reset to "+total);
+                            System.out.println("Running total has been reset to " + total);
                             break;
                         case "total":
                             System.out.println("Current total: " + total);
                             break;
                         case "add":
                             total += val;
-                            System.out.println("Added "+val+". Running total: "+total);
+                            System.out.println("Added " + val + ". Running total: " + total);
                             break;
                         case "subtract":
                             total -= val;
-                            System.out.println("Subtracted "+val+". Running total: "+total);
+                            System.out.println("Subtracted " + val + ". Running total: " + total);
                             break;
                         case "exit":
-                            System.out.println("Final total: "+total);
+                            System.out.println("Final total: " + total);
 
                     }
 
