@@ -8,7 +8,7 @@ public class PasswordStrengthChecker {
             return ;
         }
         boolean lengthPass = password.length()>= 8;
-        Boolean digitPass = false;
+        boolean digitPass = false;
         boolean uppercasePass = false;
         boolean specialPass = false;
         String  specialChar ="!@#$%^&*";
