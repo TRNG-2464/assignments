@@ -10,7 +10,7 @@ public class RaccoonWithFeat extends Raccoon{
     }
 
     public String describe(){
-        return "This raccoon is" + (isPet? "a pet":"not a pet");
+        return "This raccoon is " + (isPet? "a pet":"not a pet");
     }
 
 }

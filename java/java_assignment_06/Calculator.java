@@ -7,6 +7,28 @@ import java.util.Scanner;
 
 public class Calculator {
 
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+
+        String mode = args.length > 0 ? args[0].toLowerCase() : "basic";
+
+        switch (mode) {
+            case "history":
+                System.out.println("Running Calculator with command history support.");
+                calculator.runWithHistory();
+                break;
+            case "undo":
+                System.out.println("Running Calculator with undo support.");
+                calculator.runWithUndo();
+                break;
+            case "basic":
+            default:
+                System.out.println("Running basic Calculator.");
+                calculator.run();
+                break;
+        }
+    }
+
     private final Scanner scanner = new Scanner(System.in);
     private int total = 0;
     private boolean isRunning = true;

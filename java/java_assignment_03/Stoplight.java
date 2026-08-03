@@ -1,17 +1,16 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
-public class Stoplight{
-    // For stretch goals
-    public static final List<String> lightColors = new ArrayList<>(List.of("Green", "Yellow", "Red"));
+public class Stoplight {
 
-    public String transitionAtLight(String color, int ticks){
+    public String transitionAtLight(String color, int ticks) {
         if (ticks < 0) {
-            return "You can't have negative ticks";
+            return "Invalid input: tick count cannot be negative.";
         }
-        int startingColor = 0;
-        switch (color){
+
+        int startingColor;
+
+        switch (color) {
             case "Green":
                 startingColor = 0;
                 break;
@@ -22,10 +21,10 @@ public class Stoplight{
                 startingColor = 2;
                 break;
             default:
-                return "Input not recognized";
+                return "Invalid input: '" + color + "' is not a recognized light color.";
         }
 
-        switch ((startingColor+ticks)%3){
+        switch ((startingColor + ticks) % 3) {
             case 0:
                 return "Green";
             case 1:
@@ -33,47 +32,78 @@ public class Stoplight{
             case 2:
                 return "Red";
             default:
-                return "You have an error";
+                return "Unexpected error.";
         }
     }
 
+    // Stretch Goal 1: return every color reached after each tick.
+    public String[] transitionAtLightArray(String color, int ticks) {
+        if (ticks < 0) {
+            return new String[]{"Invalid input: tick count cannot be negative."};
+        }
 
-    // Stretch Goal 1 
-    // Errors can happen because there's no handling of negative ticks
-    public String[] transitionAtLightArray(String color, int ticks){
-        int startingColor = lightColors.indexOf(color);
+        int startingColor;
 
-        String [] answer = new String[ticks];
+        switch (color) {
+            case "Green":
+                startingColor = 0;
+                break;
+            case "Yellow":
+                startingColor = 1;
+                break;
+            case "Red":
+                startingColor = 2;
+                break;
+            default:
+                return new String[]{"Invalid input: '" + color + "' is not a recognized light color."};
+        }
 
-        for (int i = 0 ; i < ticks; i++){
-            answer[i] = lightColors.get((startingColor + i)%3);
+        String[] answer = new String[ticks];
+
+        for (int i = 0; i < ticks; i++) {
+            int nextColorIndex = (startingColor + i + 1) % 3;
+
+            switch (nextColorIndex) {
+                case 0:
+                    answer[i] = "Green";
+                    break;
+                case 1:
+                    answer[i] = "Yellow";
+                    break;
+                case 2:
+                    answer[i] = "Red";
+                    break;
+                default:
+                    answer[i] = "Unexpected error.";
+            }
         }
 
         return answer;
     }
 
-    // default Green 3, Yellow 1, Red 2
-    public String diffLightDurations(String color, int ticks){
+    // Stretch Goal 2: Green lasts 3 ticks, Yellow 1 tick, and Red 2 ticks.
+    public String diffLightDurations(String color, int ticks) {
         if (ticks < 0) {
-            return "You can't have negative ticks";
+            return "Invalid input: tick count cannot be negative.";
         }
 
-        int startingColor = 0;
-        switch (color){
+        int startingPosition;
+
+        switch (color) {
             case "Green":
-                startingColor = 0;
+                startingPosition = 0;
                 break;
             case "Yellow":
-                startingColor = 3;
+                startingPosition = 3;
                 break;
             case "Red":
-                startingColor = 4;
+                startingPosition = 4;
                 break;
             default:
-                return "Input not recognized";
+                return "Invalid input: '" + color + "' is not a recognized light color.";
         }
 
-        switch ((startingColor+ticks)%6){
+        switch ((startingPosition + ticks) % 6) {
             case 0:
             case 1:
             case 2:
@@ -84,17 +114,19 @@ public class Stoplight{
             case 5:
                 return "Red";
             default:
-                return "You have an error";
+                return "Unexpected error.";
         }
     }
 
-    // stretch goal 3. Handling should happen at wherever the method is going to be called
-     public String transitionAtLightWithExceptions(String color, int ticks){
+    // Stretch Goal 3: invalid inputs throw two different exception types.
+    public String transitionAtLightWithExceptions(String color, int ticks) {
         if (ticks < 0) {
-            throw new IllegalArgumentException("Ticks cannot be negative.");
+            throw new IllegalArgumentException("Tick count cannot be negative.");
         }
-        int startingColor = 0;
-        switch (color){
+
+        int startingColor;
+
+        switch (color) {
             case "Green":
                 startingColor = 0;
                 break;
@@ -105,10 +137,10 @@ public class Stoplight{
                 startingColor = 2;
                 break;
             default:
-                throw new NoSuchElementException("Unknown light color.");
+                throw new NoSuchElementException("'" + color + "' is not a recognized light color.");
         }
 
-        switch ((startingColor+ticks)%3){
+        switch ((startingColor + ticks) % 3) {
             case 0:
                 return "Green";
             case 1:
@@ -116,7 +148,54 @@ public class Stoplight{
             case 2:
                 return "Red";
             default:
-                return "You have an error";
+                throw new IllegalStateException("Unexpected transition state.");
+        }
+    }
+
+    public static void main(String[] args) {
+        Stoplight stoplight = new Stoplight();
+
+        System.out.println("Base requirements:");
+        System.out.println(stoplight.transitionAtLight("Green", 1));
+        System.out.println(stoplight.transitionAtLight("Green", 3));
+        System.out.println(stoplight.transitionAtLight("Red", 5));
+        System.out.println(stoplight.transitionAtLight("Green", 0));
+        System.out.println(stoplight.transitionAtLight("Purple", 2));
+        System.out.println(stoplight.transitionAtLight("Green", -3));
+
+        System.out.println("\nStretch Goal 1:");
+        System.out.println(Arrays.toString(
+                stoplight.transitionAtLightArray("Green", 4)
+        ));
+        System.out.println(Arrays.toString(
+                stoplight.transitionAtLightArray("Purple", 2)
+        ));
+        System.out.println(Arrays.toString(
+                stoplight.transitionAtLightArray("Green", -2)
+        ));
+
+        System.out.println("\nStretch Goal 2:");
+        System.out.println(stoplight.diffLightDurations("Green", 0));
+        System.out.println(stoplight.diffLightDurations("Green", 3));
+        System.out.println(stoplight.diffLightDurations("Yellow", 1));
+        System.out.println(stoplight.diffLightDurations("Red", 2));
+
+        System.out.println("\nStretch Goal 3:");
+
+        try {
+            System.out.println(
+                    stoplight.transitionAtLightWithExceptions("Purple", 2)
+            );
+        } catch (NoSuchElementException e) {
+            System.out.println("Color error: " + e.getMessage());
+        }
+
+        try {
+            System.out.println(
+                    stoplight.transitionAtLightWithExceptions("Green", -1)
+            );
+        } catch (IllegalArgumentException e) {
+            System.out.println("Tick error: " + e.getMessage());
         }
     }
 }

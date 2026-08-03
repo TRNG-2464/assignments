@@ -1,72 +1,128 @@
-class Sample{
-
-}
 public class VendingMachine {
 
-    String transaction (double itemPrice, double insertedAmount){
-        if (itemPrice < 0){
-            return "The item costs a negative amount, I'm not gonna pay you to take this item. Please enter a positive amount for the price of item.";
-        } else if (insertedAmount < 0){
-            return "The inserted amount is in negative, you can't take money out of me for free! Please enter a positive amount for the money inserted. ";
-        } else if ( itemPrice > insertedAmount){
-            return "You're  actually short " + (itemPrice - insertedAmount);
-        } else if ( insertedAmount >= itemPrice){
-            return "Purchase Successful! You're owed $" + (insertedAmount - itemPrice);
+    // Base activity
+    public String transaction(double itemPrice, double insertedAmount) {
+        if (itemPrice < 0) {
+            return "Invalid input: item price cannot be negative.";
+        } else if (insertedAmount < 0) {
+            return "Invalid input: amount inserted cannot be negative.";
+        } else if (insertedAmount < itemPrice) {
+            double amountNeeded = itemPrice - insertedAmount;
+            return String.format("Insufficient funds. Please insert $%.2f more.", amountNeeded);
+        } else {
+            double change = insertedAmount - itemPrice;
+            return String.format("Purchase successful. Change due: $%.2f", change);
         }
-        return "Gotcha, I'm actually a catch all if you have some kind of error!";
     }
 
-    // Stretch goal 1
-    String transaction(double insertedAmount, double[] itemPrices){
+    // Stretch goal 1: multiple items / running total
+    public String transactionMultipleItems(double[] itemPrices, double insertedAmount) {
+        if (itemPrices == null) {
+            return "Invalid input: item price list cannot be null.";
+        }
+
         double totalCost = 0;
 
-        for (double itemPrice: itemPrices){
+        for (double itemPrice : itemPrices) {
+            if (itemPrice < 0) {
+                return "Invalid input: item prices cannot be negative.";
+            }
             totalCost += itemPrice;
         }
-        if (totalCost < 0){
-            return "The item costs a negative amount, I'm not gonna pay you to take this item. Please enter a positive amount for the price of item.";
-        } else if (insertedAmount < 0){
-            return "The inserted amount is in negative, you can't take money out of me for free! Please enter a positive amount for the money inserted. ";
-        } else if ( totalCost > insertedAmount){
-            return "You're  actually short " + (totalCost - insertedAmount);
-        } else if ( insertedAmount >= totalCost){
-            return "Purchase Successful! You're owed $" + (insertedAmount - totalCost);
+
+        if (insertedAmount < 0) {
+            return "Invalid input: amount inserted cannot be negative.";
+        } else if (insertedAmount < totalCost) {
+            double amountNeeded = totalCost - insertedAmount;
+            return String.format(
+                    "Insufficient funds. Total cost: $%.2f. Please insert $%.2f more.",
+                    totalCost,
+                    amountNeeded
+            );
+        } else {
+            double change = insertedAmount - totalCost;
+            return String.format(
+                    "Purchase successful. Total cost: $%.2f. Change due: $%.2f",
+                    totalCost,
+                    change
+            );
+        }
+    }
+
+    // Stretch goal 2: transaction with denomination breakdown
+    public String transactionWithChange(double itemPrice, double insertedAmount) {
+        if (itemPrice < 0) {
+            return "Invalid input: item price cannot be negative.";
+        } else if (insertedAmount < 0) {
+            return "Invalid input: amount inserted cannot be negative.";
+        } else if (insertedAmount < itemPrice) {
+            double amountNeeded = itemPrice - insertedAmount;
+            return String.format("Insufficient funds. Please insert $%.2f more.", amountNeeded);
+        } else {
+            double change = insertedAmount - itemPrice;
+            return String.format("Purchase successful. Change due: $%.2f. %s", change, calculateChange(change));
+        }
+    }
+
+    static String calculateChange(double change) {
+        if (change < 0) {
+            return "Invalid change amount.";
         }
 
-        return "Gotcha, I'm actually a catch all if you have some kind of error!";
+        // Convert to cents first to avoid floating-point remainder problems.
+        int remainingCents = (int) Math.round(change * 100);
+
+        int ones = remainingCents / 100;
+        remainingCents %= 100;
+
+        int quarters = remainingCents / 25;
+        remainingCents %= 25;
+
+        int dimes = remainingCents / 10;
+        remainingCents %= 10;
+
+        int nickels = remainingCents / 5;
+        int pennies = remainingCents % 5;
+
+        return "Denominations: "
+                + ones + " one-dollar bill(s), "
+                + quarters + " quarter(s), "
+                + dimes + " dime(s), "
+                + nickels + " nickel(s), and "
+                + pennies + " penny/pennies.";
     }
 
-        // Stretch goal 2
-    String transactionWithChange (double itemPrice, double insertedAmount){
-        if (itemPrice < 0){
-            return "The item costs a negative amount, I'm not gonna pay you to take this item. Please enter a positive amount for the price of item.";
-        } else if (insertedAmount < 0){
-            return "The inserted amount is in negative, you can't take money out of me for free! Please enter a positive amount for the money inserted. ";
-        } else if ( itemPrice > insertedAmount){
-            return "You're  actually short " + (itemPrice - insertedAmount);
-        } else if ( insertedAmount >= itemPrice){
-            return "Purchase Successful! You're owed $" + calculateChange(insertedAmount - itemPrice);
-        }
-        return "Gotcha, I'm actually a catch all if you have some kind of error!";
-    }
-
-
-    static String calculateChange(double change){
-        int ones, quarters, dimes, nickels, pennies;
-
-        ones = (int)(change / 1);
-        change %= 1;
-        quarters = (int)(change/.25);
-        change %= 0.25;
-        dimes = (int)(change/.10);
-        change %= 0.10;
-        nickels = (int)(change/.05);
-        change %= 0.05;
-        pennies = (int)(change/.01);
-        
-        return "You are owed " + ones + " dollars " + quarters + " quarters " + dimes + " dimes " + nickels + " nickels and " + pennies + " pennies";
-    }
     public static void main(String[] args) {
-        
+        VendingMachine machine = new VendingMachine();
+
+        System.out.println("BASE ACTIVITY");
+        System.out.println("1. Purchase with change:");
+        System.out.println(machine.transaction(1.50, 2.00));
+
+        System.out.println("\n2. Insufficient funds:");
+        System.out.println(machine.transaction(1.50, 1.00));
+
+        System.out.println("\n3. Exact payment:");
+        System.out.println(machine.transaction(1.50, 1.50));
+
+        System.out.println("\n4. Negative item price:");
+        System.out.println(machine.transaction(-1.50, 2.00));
+
+        System.out.println("\n5. Negative inserted amount:");
+        System.out.println(machine.transaction(1.50, -1.00));
+
+        System.out.println("\nSTRETCH GOAL 1: MULTIPLE ITEMS");
+        double[] coveredItems = {1.25, 2.50, 0.75};
+        System.out.println(machine.transactionMultipleItems(coveredItems, 5.00));
+
+        double[] underpaidItems = {1.25, 2.50, 0.75};
+        System.out.println(machine.transactionMultipleItems(underpaidItems, 4.00));
+
+        double[] invalidItems = {2.00, -0.50, 1.00};
+        System.out.println(machine.transactionMultipleItems(invalidItems, 5.00));
+
+        System.out.println("\nSTRETCH GOAL 2: DENOMINATIONS");
+        System.out.println(machine.transactionWithChange(1.59, 5.00));
+        System.out.println(machine.transactionWithChange(1.50, 1.50));
     }
 }
