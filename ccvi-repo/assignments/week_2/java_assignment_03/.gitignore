@@ -1,0 +1,30 @@
+# Compiled class files
+*.class
+
+# Eclipse generated files and folders
+bin/
+.metadata
+.tmp/
+tmp/
+.settings/
+.loadpath
+.factorypath
+.externalToolBuilders/
+
+# User-specific localized files
+local.properties
+*.launch
+*.log
+
+# Build tools (Maven / Gradle)
+target/
+build/
+.gradle/
+
+# Core Eclipse project files
+.classpath
+.project
+
+# Specific Eclipse preference files
+.settings/org.eclipse.core.resources.prefs
+.settings/org.eclipse.jdt.core.prefs
