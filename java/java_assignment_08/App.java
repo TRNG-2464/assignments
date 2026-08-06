@@ -2,46 +2,30 @@
 public class App {
 
     public static void main(String[] args) {
+        // Take in an array of ints
+        // Secind arg target number
 
-        try {
-            order("video_tape", 1, 0, 5, 2, false);
-        } catch (OutOfStockException | InvalidQuantityException | PaymentExpiredException | PaymentDeclinedException e) {
-            System.err.println(e);
-        }
-
-        try {
-            order("video_tape", 1, 1, 5, 2, true);
-        } catch (OutOfStockException | InvalidQuantityException | PaymentExpiredException | PaymentDeclinedException e) {
-            System.err.println(e);
-        }
+        // Should return the indices of the array that sum together to that target value
+      
 
     }
 
-    public static boolean order(String item,
-            int requested_quantity,
-            int available_stock,
-            double payment_amount,
-            double total_cost,
-            boolean paymentExpired) throws InvalidQuantityException, PaymentExpiredException, OutOfStockException, PaymentDeclinedException {
-        // Validate inventory rules first
-        if (requested_quantity <= 0) {
-            throw new InvalidQuantityException();
+    public static int[] method(int[] numbers, int target){
+
+        for(int i = 0; i < numbers.length; i++){
+            for(int x = 0; x< numbers.length; x++){
+                if(numbers[i] + numbers[x] == target){
+                    int[] out = new int[2];
+                    out[0] = i;
+                    out[1] = x;
+
+                    return out;
+                }
+            }
         }
 
-        if (requested_quantity > available_stock) {
-            throw new OutOfStockException();
-        }
-
-        // Validate payment related rules
-        if (paymentExpired) {
-            throw new PaymentExpiredException();
-        }
-
-        if (payment_amount < total_cost) {
-            throw new PaymentDeclinedException();
-        }
-
-        return true;
+        return null;
     }
+    
 
 }
