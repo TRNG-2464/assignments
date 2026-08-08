@@ -11,7 +11,6 @@ public class App {
     }
 
     public static int[] method(int[] numbers, int target){
-
         for(int i = 0; i < numbers.length; i++){
             for(int x = 0; x< numbers.length; x++){
                 if(numbers[i] + numbers[x] == target){

@@ -1,5 +1,8 @@
-
 import java.util.Scanner;
+
+import com.mycompany.app.Cat;
+import com.mycompany.app.Dog;
+import com.mycompany.app.Mouse;
 
 public class App {
 

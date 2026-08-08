@@ -1,7 +1,1 @@
-com/mycompany/app/OutOfStockException.class
 com/mycompany/app/App.class
-com/mycompany/app/PaymentException.class
-com/mycompany/app/InvalidQuantityException.class
-com/mycompany/app/PaymentDeclinedException.class
-com/mycompany/app/PaymentExpiredException.class
-com/mycompany/app/InventoryException.class
