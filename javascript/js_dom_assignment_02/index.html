@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caption Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="studio">
+    <header class="studio__header">
+      <p class="studio__eyebrow">Caption Studio</p>
+      <h1 class="studio__title">Write it. Watch the frame fill.</h1>
+    </header>
+
+    <section class="card">
+      <label class="card__label" for="caption">Caption</label>
+
+      <textarea
+        id="caption"
+        class="card__textarea"
+        placeholder="Describe the shot..."
+        rows="6"
+      ></textarea>
+
+      <div class="card__footer">
+        <button type="button" id="clearBtn" class="clear-btn">Clear</button>
+
+        <div class="dial" id="dial">
+          <svg class="dial__ring" viewBox="0 0 64 64" aria-hidden="true">
+            <circle class="dial__track" cx="32" cy="32" r="28" />
+            <circle class="dial__progress" id="dialProgress" cx="32" cy="32" r="28" />
+          </svg>
+          <div class="dial__reading">
+            <span id="charCount">0</span><span class="dial__slash">/</span><span id="charMax">280</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

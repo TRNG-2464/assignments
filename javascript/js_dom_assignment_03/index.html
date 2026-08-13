@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tasklyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="app">
+    <header class="app__header">
+      <p class="app__mark">Tasklyst</p>
+
+      <div class="scoreboard" aria-live="polite">
+        <span class="scoreboard__number" id="taskCount">0</span>
+        <span class="scoreboard__label" id="taskLabel">tasks left</span>
+      </div>
+    </header>
+
+    <form class="composer" id="composer" novalidate>
+      <input
+        type="text"
+        id="taskInput"
+        class="composer__input"
+        placeholder="What needs doing?"
+        autocomplete="off"
+      />
+      <button type="submit" class="composer__add">Add</button>
+    </form>
+
+    <ul class="list" id="taskList" aria-label="Task list"></ul>
+
+    <p class="empty-state" id="emptyState">Nothing on the docket yet.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

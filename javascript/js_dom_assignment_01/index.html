@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pigment Counter — Choose a Color</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="counter">
+    <header class="counter__header">
+      <p class="counter__eyebrow">Pigment Counter</p>
+      <h1 class="counter__title">Pick a chip, see it up close.</h1>
+      <p class="counter__hint">Tap a swatch below — the card above updates to match.</p>
+    </header>
+
+    <section class="preview" aria-live="polite">
+      <div class="preview__card">
+        <div class="preview__swatch" id="previewSwatch"></div>
+        <div class="preview__label">
+          <span class="preview__name" id="previewName">No color selected</span>
+          <span class="preview__value" id="previewValue">— — — —</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="rack" aria-label="Color swatches">
+      <div class="rack__row" id="swatchRow">
+        <button type="button" class="chip" style="background-color:#1E5AA8;" data-name="Ocean Blue" data-value="#1E5AA8">Ocean Blue</button>
+        <button type="button" class="chip" style="background-color:#E4622A;" data-name="Sunset Orange" data-value="#E4622A">Sunset Orange</button>
+        <button type="button" class="chip" style="background-color:#2F6B4F;" data-name="Forest Green" data-value="#2F6B4F">Forest Green</button>
+        <button type="button" class="chip chip--light" style="background-color:#E8AFC0;" data-name="Blush Pink" data-value="#E8AFC0">Blush Pink</button>
+        <button type="button" class="chip" style="background-color:#3B4A54;" data-name="Charcoal Slate" data-value="#3B4A54">Charcoal Slate</button>
+        <button type="button" class="chip chip--light" style="background-color:#D9A72E;" data-name="Golden Mustard" data-value="#D9A72E">Golden Mustard</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
