@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.square {
+    width: 30vw;
+    height: 20vh;
+    background-color: #D6FF3D;
+}
+
+
+
+.btn {
+    width: 120px;
+    height: 30px;
+
+}
+
+.highlighter {
+    background-color: #D6FF3D;
+}
+
+.sulfur {
+    background-color: #FFF04D;
+}
+
+.marigold {
+    background-color: #FFB000;
+}
+
+.persimmon {
+    background-color: #FF5A1F;
+}
+
+.flamingo {
+    background-color: #FF4F81;
+}
