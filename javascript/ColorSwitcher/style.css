@@ -1,0 +1,16 @@
+#preview{
+    width: 300px;
+    height: 200px;
+    background-color: lightgray;
+}
+
+button{
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.selected{
+    border: 3px solid black;
+}
