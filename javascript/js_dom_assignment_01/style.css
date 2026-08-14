@@ -1,0 +1,13 @@
+
+button {
+    display: block;
+    border: none;
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+}
+
+button.highlight-btn {
+    border: 4px solid lightblue;
+}
+
