@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Switcher</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="color-switcher">
+      <header class="page-header">
+        <p class="eyebrow">Hue &amp; Home Paint Studio</p>
+        <h1>Find just the right color.</h1>
+      </header>
+
+      <section class="preview-section" aria-labelledby="preview-heading">
+        <div class="preview-copy">
+          <p class="section-label">Current selection:</p>
+          <h2 id="preview-heading">Berry Red</h2>
+          <p id="color-value">#D1495B</p>
+        </div>
+
+        <div
+          id="color-preview"
+          class="color-preview"
+          role="img"
+          aria-label="Ocean Blue color preview"
+        ></div>
+      </section>
+
+      <section class="palette-section" aria-labelledby="palette-heading">
+        <h2 id="palette-heading">Choose a swatch</h2>
+
+        <div class="swatch-list">
+        <button
+            class="swatch selected"
+            type="button"
+            data-color="#D1495B"
+            data-name="Berry Red"
+            style="--swatch-color: #d1495b"
+            aria-pressed="true"
+        >
+            Berry Red
+        </button>
+
+        <button
+            class="swatch"
+            type="button"
+            data-color="#00798C"
+            data-name="Deep Teal"
+            style="--swatch-color: #00798c"
+            aria-pressed="false"
+        >
+            Deep Teal
+        </button>
+
+        <button
+            class="swatch"
+            type="button"
+            data-color="#30638E"
+            data-name="Denim Blue"
+            style="--swatch-color: #30638e"
+            aria-pressed="false"
+        >
+            Denim Blue
+        </button>
+
+        <button
+            class="swatch dark-text"
+            type="button"
+            data-color="#EDAE49"
+            data-name="Mustard Yellow"
+            style="--swatch-color: #edae49"
+            aria-pressed="false"
+        >
+            Mustard Yellow
+        </button>
+
+        <button
+            class="swatch"
+            type="button"
+            data-color="#6A4C93"
+            data-name="Plum Purple"
+            style="--swatch-color: #6a4c93"
+            aria-pressed="false"
+        >
+            Plum Purple
+        </button>
+        </div>
+
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
