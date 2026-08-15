@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.counter-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+.counter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.counter {
+  color: black;
+}
+
+.counter.warning {
+  color: orange;
+}
+
+.counter.over-limit {
+  color: red;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+}

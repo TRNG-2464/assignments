@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.todo-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 8px;
+}
+
+button {
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+#task-list {
+  padding: 0;
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #cccccc;
+}
+
+.task-text {
+  flex: 1;
+}
+
+.task-item.completed .task-text {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.delete-button {
+  color: darkred;
+}
