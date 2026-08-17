@@ -1,0 +1,61 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 40px;
+}
+
+.input-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    width: 260px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+button {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    width: 340px;
+    margin: 0 auto;
+}
+
+#taskList li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.task-text {
+    flex: 1;
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #d92626;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.counter {
+    margin-top: 20px;
+    font-weight: bold;
+}

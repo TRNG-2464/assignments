@@ -1,0 +1,39 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 40px;
+}
+
+textarea {
+    width: 400px;
+    height: 120px;
+    font-size: 16px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.controls {
+    width: 400px;
+    margin: 10px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counter {
+    font-weight: bold;
+    color: #666;
+}
+
+.counter.warning {
+    color: #d98c00;
+}
+
+.counter.over {
+    color: #d92626;
+}
+
+button {
+    padding: 6px 14px;
+    cursor: pointer;
+}
