@@ -1,0 +1,29 @@
+#caption {
+    background-color: #808080;
+    padding: 15px;
+    border: 2px;
+    margin: 5px;
+}
+#clear {
+    width: 200px;
+    height: 150px;
+    padding: 15px;
+    border: 2px;
+    margin: 5px;
+}
+#counter {
+    width: 100px;
+    height: 50px;
+    padding: 15px;
+    border: 2px;
+    margin: 5px;
+}
+.normal {
+    color: #008000;
+}
+.warning {
+    color: #FFFF00;
+}
+.over-limit {
+    color: #FF0000;
+}
