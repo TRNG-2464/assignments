@@ -17,7 +17,7 @@ public class asgn_05 {
 
         String result = "";
         boolean first = true;
-        for (Map.Entry<String, Integer> currentKV : counts.entrySet()) { //Map.Entry 
+        for (Map.Entry<String, Integer> currentKV : counts.entrySet()) { //Map.Entry represents a single key & value
             if (!first) {
                 result += ", ";
             }
