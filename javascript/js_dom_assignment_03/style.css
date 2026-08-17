@@ -1,0 +1,31 @@
+#input {
+    width: 100px;
+    height: 50px;
+    padding: 15px;
+    border: 2px solid-black;
+    margin: 5px;
+}
+#counter {
+    width: 100px;
+    height: 50px;
+    padding: 15px;
+    border: 2px;
+    margin: 5px;
+}
+#tasklist {
+    width: 100px;
+    height: 50px;
+    padding: 15px;
+    border: 2px;
+    margin: 5px;
+}
+#addbutton {
+    width: 100px;
+    height: 50px;
+    padding: 15px;
+    border: 2px;
+    margin: 5px;
+}
+.completed {
+    text-decoration: line-through;
+}
