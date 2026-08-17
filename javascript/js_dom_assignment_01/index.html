@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Switcher — Hue &amp; Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <h1>Color Switcher</h1>
+    <p class="subtitle">Click a swatch to preview it on the wall.</p>
+
+    <div class="swatches" id="swatches">
+      <button class="swatch" style="background-color: #1E5AA8" data-color="#1E5AA8">Ocean Blue</button>
+      <button class="swatch" style="background-color: #E8622C" data-color="#E8622C">Sunset Orange</button>
+      <button class="swatch" style="background-color: #3F8F5C" data-color="#3F8F5C">Forest Green</button>
+      <button class="swatch" style="background-color: #C94F7C" data-color="#C94F7C">Blush Pink</button>
+      <button class="swatch" style="background-color: #6C4AB6" data-color="#6C4AB6">Royal Violet</button>
+      <button class="swatch" style="background-color: #D9B44A" data-color="#D9B44A">Golden Sand</button>
+    </div>
+
+    <section class="preview-section">
+      <div class="preview" id="preview"></div>
+      <p class="preview-value">
+        Color value: <span id="colorValue">—</span>
+      </p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

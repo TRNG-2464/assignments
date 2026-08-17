@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List — Tasklyst</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <h1>To-Do List</h1>
+
+    <form id="taskForm" class="task-form">
+      <input
+        type="text"
+        id="taskInput"
+        class="task-input"
+        placeholder="What needs to be done?"
+        autocomplete="off"
+      />
+      <button type="submit">Add</button>
+    </form>
+
+    <ul id="taskList" class="task-list"></ul>
+
+    <div class="footer">
+      <span id="taskCounter" class="task-counter">0 tasks left</span>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

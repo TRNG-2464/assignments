@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Character Counter — Postly</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <h1>Caption Character Counter</h1>
+    <p class="subtitle">Draft your caption and keep an eye on the limit.</p>
+
+    <textarea
+      id="captionInput"
+      class="caption-input"
+      placeholder="Write your caption here..."
+      rows="6"
+    ></textarea>
+
+    <div class="controls">
+      <span id="charCounter" class="char-counter">0 / 280</span>
+      <button id="clearBtn" type="button">Clear</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
