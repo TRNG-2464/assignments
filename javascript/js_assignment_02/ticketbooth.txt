@@ -1,0 +1,18 @@
+function countOutOfOrder(ticketLine) {
+    // Creating a copy so the original array is not changed
+    let sortedLine = [...ticketLine];
+
+    // Sort numbers in ascending order
+    sortedLine.sort((a, b) => a - b);
+
+    let count = 0;
+
+    // Compare original line with sorted line
+    for (let i = 0; i < ticketLine.length; i++) {
+        if (ticketLine[i] !== sortedLine[i]) {
+            count++;
+        }
+    }
+
+    return count;
+}

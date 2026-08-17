@@ -1,0 +1,24 @@
+function countFuelStops(legDistances, fuelRange) {
+    let distanceSinceFuelStop = 0;
+    let stops = 0;
+
+    for (let i = 0; i < legDistances.length; i++) {
+        let leg = legDistances[i];
+
+        // A single leg is impossible to complete
+        if (leg > fuelRange) {
+            return -1;
+        }
+
+        // Refuel before this leg if it won't fit in the remaining range
+        if (distanceSinceFuelStop + leg > fuelRange) {
+            stops++;
+            distanceSinceFuelStop = 0;
+        }
+
+        // Drive the leg
+        distanceSinceFuelStop += leg;
+    }
+
+    return stops;
+}
