@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Swatch — Hue &amp; Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="brand">
+      <p class="eyebrow">Hue &amp; Home</p>
+      <h1>Mood Swatch</h1>
+      <p class="tagline">Try a color on for size before you open the can.</p>
+    </header>
+
+    <main class="studio">
+
+      <section class="swatch-rail" aria-label="Color swatches">
+        <button type="button" class="swatch" data-color="#1E5AA8" data-name="Ocean Blue" style="background-color:#1E5AA8;">
+          <span class="swatch-name">Ocean Blue</span>
+        </button>
+
+        <button type="button" class="swatch" data-color="#E8622C" data-name="Sunset Orange" style="background-color:#E8622C;">
+          <span class="swatch-name">Sunset Orange</span>
+        </button>
+
+        <button type="button" class="swatch" data-color="#7A8B6F" data-name="Sage Green" style="background-color:#7A8B6F;">
+          <span class="swatch-name">Sage Green</span>
+        </button>
+
+        <button type="button" class="swatch swatch--light" data-color="#E0A0A8" data-name="Blush Pink" style="background-color:#E0A0A8;">
+          <span class="swatch-name">Blush Pink</span>
+        </button>
+
+        <button type="button" class="swatch" data-color="#3B3F45" data-name="Charcoal Slate" style="background-color:#3B3F45;">
+          <span class="swatch-name">Charcoal Slate</span>
+        </button>
+
+        <button type="button" class="swatch swatch--light" data-color="#E8B94A" data-name="Butter Yellow" style="background-color:#E8B94A;">
+          <span class="swatch-name">Butter Yellow</span>
+        </button>
+      </section>
+
+      <section class="preview-card" aria-label="Preview">
+        <div class="preview-area" id="previewArea">
+          <p class="preview-placeholder" id="previewPlaceholder">Select a swatch to preview it here</p>
+        </div>
+
+        <div class="value-tag">
+          <span class="value-label">Color value</span>
+          <span class="value-text" id="valueText">—</span>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+/* ---------------------------------------------
+   Tokens
+--------------------------------------------- */
+:root {
+    --bg: #F6F5FB;
+    --surface: #FFFFFF;
+    --ink: #1E1B33;
+    --ink-soft: #6B6580;
+    --border: #E4E1F0;
+  
+    --accent: #5B4FE9;
+    --accent-soft: #DAD6F9;
+  
+    --warning: #C9860A;
+    --warning-soft: #FBEBC9;
+  
+    --danger: #E23E57;
+    --danger-soft: #FBDCE1;
+  
+    --font-display: "Sora", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  
+    --radius-card: 20px;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    min-height: 100vh;
+  }
+  
+  /* ---------------------------------------------
+     Layout
+  --------------------------------------------- */
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+  
+  /* ---------------------------------------------
+     Header
+  --------------------------------------------- */
+  .brand {
+    text-align: left;
+  }
+  
+  .eyebrow {
+    margin: 0 0 6px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  
+  .brand h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 44px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  
+  .tagline {
+    margin: 10px 0 0;
+    font-size: 15px;
+    color: var(--ink-soft);
+    max-width: 42ch;
+  }
+  
+  /* ---------------------------------------------
+     Composer card
+  --------------------------------------------- */
+  .composer {
+    margin-top: 40px;
+  }
+  
+  .composer-card {
+    background-color: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 24px;
+    box-shadow: 0 1px 2px rgba(30, 27, 51, 0.04);
+    transition: border-color 0.2s ease;
+  }
+  
+  .field-label {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  
+  .caption-input {
+    width: 100%;
+    resize: vertical;
+    min-height: 130px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink);
+    background-color: var(--bg);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  
+  .caption-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  
+  .caption-input::placeholder {
+    color: var(--ink-soft);
+    opacity: 0.7;
+  }
+  
+  /* ---------------------------------------------
+     Footer: clear button + counter
+  --------------------------------------------- */
+  .composer-footer {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .clear-btn {
+    border: 1.5px solid var(--border);
+    background-color: var(--surface);
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13px;
+    padding: 9px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+  }
+  
+  .clear-btn:hover {
+    border-color: var(--ink-soft);
+    color: var(--ink);
+  }
+  
+  .clear-btn:focus-visible {
+    outline: 3px solid var(--accent-soft);
+    outline-offset: 2px;
+  }
+  
+  /* ---------------------------------------------
+     Counter — mono text + ring
+  --------------------------------------------- */
+  .counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .counter-text {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    transition: color 0.15s ease;
+  }
+  
+  .counter-ring {
+    width: 26px;
+    height: 26px;
+    transform: rotate(-90deg);
+  }
+  
+  .ring-track {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 3;
+  }
+  
+  .ring-progress {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 97.39;
+    stroke-dashoffset: 97.39;
+    transition: stroke-dashoffset 0.15s ease, stroke 0.15s ease;
+  }
+  
+  /* ---------------------------------------------
+     State: normal (default — accent-tinted ring, soft ink text)
+  --------------------------------------------- */
+  
+  /* ---------------------------------------------
+     State: warning — approaching the limit
+  --------------------------------------------- */
+  .counter.state-warning .counter-text {
+    color: var(--warning);
+    font-weight: 600;
+  }
+  
+  .counter.state-warning .ring-progress {
+    stroke: var(--warning);
+  }
+  
+  .composer-card.state-warning {
+    border-color: var(--warning);
+  }
+  
+  .composer-card.state-warning .caption-input {
+    border-color: var(--warning-soft);
+  }
+  
+  /* ---------------------------------------------
+     State: over limit
+  --------------------------------------------- */
+  .counter.state-danger .counter-text {
+    color: var(--danger);
+    font-weight: 700;
+  }
+  
+  .counter.state-danger .ring-progress {
+    stroke: var(--danger);
+  }
+  
+  .composer-card.state-danger {
+    border-color: var(--danger);
+  }
+  
+  .composer-card.state-danger .caption-input {
+    border-color: var(--danger-soft);
+  }

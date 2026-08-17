@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Counter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="brand">
+      <p class="eyebrow">Postly</p>
+      <h1>Compose</h1>
+      <p class="tagline">Keep an eye on the limit.</p>
+    </header>
+
+    <main class="composer">
+      <div class="composer-card" id="composerCard">
+
+        <label class="field-label" for="caption">Caption</label>
+        <textarea
+          id="caption"
+          class="caption-input"
+          rows="6"
+          placeholder="What's the post about?"
+        ></textarea>
+
+        <div class="composer-footer">
+          <button type="button" id="clearBtn" class="clear-btn">Clear</button>
+
+          <div class="counter" id="counter">
+            <svg class="counter-ring" viewBox="0 0 36 36" aria-hidden="true">
+              <circle class="ring-track" cx="18" cy="18" r="15.5"></circle>
+              <circle class="ring-progress" id="ringProgress" cx="18" cy="18" r="15.5"></circle>
+            </svg>
+            <span class="counter-text" id="counterText">0 / 280</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

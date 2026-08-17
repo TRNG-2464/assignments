@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Today's List — Tasklyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="brand">
+      <p class="eyebrow">Tasklyst</p>
+      <h1>Today's List</h1>
+      <p class="tagline">Small tasks, done one at a time.</p>
+    </header>
+
+    <main class="board">
+
+      <form class="add-row" id="addForm">
+        <input
+          type="text"
+          id="taskInput"
+          class="task-input"
+          placeholder="Add a task…"
+          autocomplete="off"
+        >
+        <button type="submit" class="add-btn">Add</button>
+      </form>
+
+      <ul class="task-list" id="taskList">
+        <!-- tasks are created and inserted here by script.js -->
+      </ul>
+
+      <p class="empty-state" id="emptyState">Nothing on the list yet — add your first task above.</p>
+
+      <footer class="board-footer">
+        <span class="counter" id="counter">0 tasks left</span>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
