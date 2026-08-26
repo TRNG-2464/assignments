@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hue & Home - Color Switcher</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hue & Home</h1>
+        <h2>Color Switcher</h2>
+
+        <p>Choose a color to preview:</p>
+
+        <div class="swatches">
+            <button class="swatch"
+                    data-color="#1E5AA8"
+                    style="background-color: #1E5AA8;">
+                Ocean Blue
+            </button>
+
+            <button class="swatch"
+                    data-color="#F97316"
+                    style="background-color: #F97316;">
+                Sunset Orange
+            </button>
+
+            <button class="swatch"
+                    data-color="#22C55E"
+                    style="background-color: #22C55E;">
+                Fresh Green
+            </button>
+
+            <button class="swatch"
+                    data-color="#8B5CF6"
+                    style="background-color: #8B5CF6;">
+                Royal Purple
+            </button>
+
+            <button class="swatch"
+                    data-color="#EAB308"
+                    style="background-color: #EAB308;">
+                Golden Yellow
+            </button>
+        </div>
+
+        <div id="preview" class="preview">
+            <p>Color Preview</p>
+        </div>
+
+        <p class="color-value">
+            Selected Color:
+            <span id="colorValue">None</span>
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
