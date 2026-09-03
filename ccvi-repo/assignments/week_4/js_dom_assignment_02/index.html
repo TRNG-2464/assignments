@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A live social caption character counter with warning and hard-limit modes.">
+    <title>Postly | Character Counter</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="caption-card" aria-labelledby="page-title">
+        <p class="eyebrow">Postly studio</p>
+        <h1 id="page-title">Shape a caption that fits.</h1>
+        <p class="intro">Draft freely, keep an eye on the platform limit, and switch on hard-limit mode when every character counts.</p>
+
+        <label class="caption-label" for="caption">Caption</label>
+        <textarea id="caption" rows="9" placeholder="Write your caption here…" aria-describedby="counter-helper"></textarea>
+
+        <div class="counter-row">
+          <output id="character-counter" class="character-counter is-normal" for="caption" aria-live="polite">0 / 280</output>
+          <p id="counter-helper" class="counter-helper">A warning appears in the final 20 characters.</p>
+        </div>
+
+        <div class="controls">
+          <label class="hard-limit-control" for="hard-limit">
+            <input id="hard-limit" type="checkbox">
+            <span>Prevent typing past limit</span>
+          </label>
+          <button id="clear-caption" class="clear-button" type="button">Clear</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

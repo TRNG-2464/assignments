@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An interactive color-switcher tool for previewing paint colors.">
+    <title>Hue &amp; Home | Color Switcher</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="color-card" aria-labelledby="page-title">
+        <p class="eyebrow">Hue &amp; Home</p>
+        <h1 id="page-title">Mood swatch preview</h1>
+        <p class="intro">Choose a paint color to see it at wall scale and save its exact value.</p>
+
+        <div class="preview-panel" id="color-preview" aria-live="polite">
+          <p class="preview-label">Current color</p>
+          <output class="color-value" id="color-value">Select a swatch</output>
+        </div>
+
+        <section aria-labelledby="preset-heading">
+          <div class="section-heading">
+            <h2 id="preset-heading">Preset colors</h2>
+            <button class="random-button" id="random-color" type="button">Choose a random color</button>
+          </div>
+
+          <div class="swatch-grid" role="group" aria-label="Preset paint colors">
+            <button class="swatch" type="button" data-color="#1E5AA8" data-name="Ocean Blue" aria-pressed="false">Ocean Blue</button>
+            <button class="swatch" type="button" data-color="#EF6C38" data-name="Sunset Orange" aria-pressed="false">Sunset Orange</button>
+            <button class="swatch swatch--light" type="button" data-color="#E5C44F" data-name="Golden Hour" aria-pressed="false">Golden Hour</button>
+            <button class="swatch" type="button" data-color="#4D8069" data-name="Forest Fern" aria-pressed="false">Forest Fern</button>
+            <button class="swatch" type="button" data-color="#794F91" data-name="Velvet Plum" aria-pressed="false">Velvet Plum</button>
+            <button class="swatch swatch--light" type="button" data-color="#E3A8B7" data-name="Rose Quartz" aria-pressed="false">Rose Quartz</button>
+          </div>
+        </section>
+
+        <section class="custom-color" aria-labelledby="custom-heading">
+          <div>
+            <h2 id="custom-heading">Create a custom color</h2>
+            <p>Use the picker for any color beyond the presets.</p>
+          </div>
+          <label class="color-input-label" for="custom-color">
+            <span>Custom color</span>
+            <input id="custom-color" type="color" value="#1E5AA8">
+          </label>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

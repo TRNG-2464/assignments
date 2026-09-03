@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A dynamic browser-based to-do list with filters and completion controls.">
+    <title>Tasklyst | To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="task-card" aria-labelledby="page-title">
+        <p class="eyebrow">Tasklyst</p>
+        <h1 id="page-title">Small list. Clear mind.</h1>
+        <p class="intro">Add a task, check it off, and focus only on what still needs your attention.</p>
+
+        <form id="task-form" class="task-form">
+          <label class="visually-hidden" for="task-input">New task</label>
+          <input id="task-input" name="task" type="text" placeholder="What needs to get done?" autocomplete="off">
+          <button class="add-button" type="submit">Add task</button>
+        </form>
+
+        <div class="task-toolbar">
+          <output id="task-counter" class="task-counter" aria-live="polite">0 tasks left</output>
+          <button id="clear-completed" class="clear-completed" type="button">Clear completed</button>
+        </div>
+
+        <div class="filter-group" role="group" aria-label="Filter tasks">
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Active</button>
+          <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Completed</button>
+        </div>
+
+        <ul id="task-list" class="task-list" aria-label="Tasks"></ul>
+        <p id="empty-state" class="empty-state">No tasks in this view. Add one above to get started.</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
