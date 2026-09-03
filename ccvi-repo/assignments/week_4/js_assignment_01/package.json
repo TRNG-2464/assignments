@@ -1,0 +1,14 @@
+{
+  "name": "js-assignment-01-road-trip-fuel-stops",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Road Trip Fuel Stops assignment implemented in modern JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=24.19.0"
+  }
+}
